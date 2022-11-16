@@ -222,7 +222,7 @@ class MainFrame ( wx.Frame ):
 		self.Centre( wx.BOTH )
 		
 		# Connect Events
-		self.notebook_searchDB.Bind( wx.EVT_NOTEBOOK_PAGE_CHANGED, self.loadData )
+		self.notebook_searchDB.Bind( wx.EVT_NOTEBOOK_PAGE_CHANGED, self.load_data )
 		self.search_button.Bind( wx.EVT_BUTTON, self.btn_search )
 		self.export_txt_button.Bind( wx.EVT_BUTTON, self.btn_export_txt )
 		self.export_pdf_button.Bind( wx.EVT_BUTTON, self.btn_export_pdf )
@@ -236,7 +236,7 @@ class MainFrame ( wx.Frame ):
 	
 	
 	# Virtual event handlers, overide them in your derived class
-	def loadData( self, event ):
+	def load_data( self, event ):
 		event.Skip()
 	
 	def btn_search( self, event ):
