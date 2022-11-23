@@ -1,5 +1,5 @@
 # school ventures
-tears were lost during the making of this collection
+collection of school stuff
 
 ## python stuff
 
@@ -14,11 +14,14 @@ Cryptography contains three projects so far:
 
 ### wxFormbuilder
 
-An extreme amount of emotional tears were lost in the making of this folder
-
 1. wxCalc
 2. wxEncrypt
 3. wxLiteratureDatabase
+
+### flask
+
+1. Questionnaire
+2. Webshop
 
 ![image](https://user-images.githubusercontent.com/78026100/200687665-f27d2764-c8b4-445e-8f1b-f1dbb733110e.png)
 
