@@ -79,7 +79,7 @@ class MainFrame(gui.MainFrame):
         all_books = self.dataModel.getBooks(self.con)
         with open("books.txt", "w+", encoding='utf-8') as txt_file:
             for book in all_books:
-                txt_file.write(", ".join(book) + '\n')
+                txt_file.write(", ".join(map(str, book)) + '\n')
 
     def btn_export_pdf(self, event):
         pdf = FPDF()
@@ -88,9 +88,9 @@ class MainFrame(gui.MainFrame):
         all_books = self.dataModel.getBooks(self.con)
         
         for book in all_books:
-            line = ", ".join(book)
+            line = ", ".join(map(str, book))
             pdf.cell(200, 10, txt = line, ln = 1, align = 'L')
-        pdf.output("books.pdf")  
+        pdf.output("books.pdf")
 
     def btn_add_book(self, event):
         dlg = gui.AddBookDialog(self)
@@ -107,8 +107,8 @@ class MainFrame(gui.MainFrame):
                         
             self.dataModel.addBook(self.con, (title, sname, fname, publisher, year, genre))
 
-        if result == wx.ID_CLOSE:
-            self.EndModal(wx.ID_CLOSE)
+        if result == wx.ID_CANCEL:
+            self.EndModal(wx.ID_CANCEL)
 
         self.load_data(None)
 
@@ -128,6 +128,9 @@ class MainFrame(gui.MainFrame):
             date = "{month} {year}"
 
             self.dataModel.addArticle(self.con, (title, sname, fname, magazine, issue, date))
+        
+        if result == wx.ID_CANCEL:
+            self.EndModal(wx.ID_CANCEL)
 
         self.load_data(None)
 
@@ -169,7 +172,7 @@ class LogFrame(gui.LogFrame):
         pb.subscribe(self.listener, "MyMainFrame")
 
     def listener(self, message):
-        # Temperarry
+        # Temporary
         msg = self.log_staticText.Label
         msg += datetime.datetime.now().strftime("%H:%M:%S %m/%d/%Y  | ")
         msg += message + "\n"
