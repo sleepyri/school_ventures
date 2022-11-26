@@ -4,7 +4,7 @@ class DatabaseModel():
     Attributes:
         pb: Pubsub object used for logging
     Methods: 
-        active_log: Function declorator for handeling automatic logging of all datbase interactions
+        active_log: Function for logging and handling automatic logging of all database interactions
         searchBooks: Search up a book in the database
         getBooks: Get books from given input
         getArticle: Get articles from given input
@@ -15,13 +15,13 @@ class DatabaseModel():
     """
 
     def __init__(self, pubsub):
-        self.pb = pubsub
+        self.pb     = pubsub
 
     def active_log(func):
-        """ Logger declorator """
+        """ Function for logging """
         def wrapper(self, *args, **kwargs):
-            self.pb.sendMessage("MyMainFrame", message = f"{func.__name__} - {args} - {func.__doc__}")
-            return func(self, *args, **kwargs)
+            self.pb.sendMessage("MyMainFrame", message = f"{func.__name__} - {func.__doc__}")
+            return func(self, *args, **kwargs)  
         return wrapper
 
     @active_log
