@@ -5,7 +5,6 @@ collection of school stuff
 
 ### cryptography
 
-Cryptography contains three projects so far:
 1. Ceasar cipher
 2. Frequency analysis
 3. Transposition cipher
@@ -26,4 +25,4 @@ Cryptography contains three projects so far:
 ![image](https://user-images.githubusercontent.com/78026100/200687665-f27d2764-c8b4-445e-8f1b-f1dbb733110e.png)
 
 *losing my mind slowly but surely*
-<br>It is an enjoyable experience. Would do again 10/10<br>
+<br>Enjoyable experience. Would do again 10/10<br>
