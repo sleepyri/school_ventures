@@ -340,7 +340,7 @@ class AddBookDialog ( wx.Dialog ):
 		self.m_button7 = wx.Button( self, wx.ID_OK, u"Add book", wx.DefaultPosition, wx.DefaultSize, 0 )
 		bSizer24.Add( self.m_button7, 0, wx.ALL, 5 )
 		
-		self.m_button9 = wx.Button( self, wx.ID_CLOSE, u"Cancel", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_button9 = wx.Button( self, wx.ID_CANCEL, u"Cancel", wx.DefaultPosition, wx.DefaultSize, 0 )
 		bSizer24.Add( self.m_button9, 0, wx.ALL, 5 )
 		
 		
@@ -354,7 +354,6 @@ class AddBookDialog ( wx.Dialog ):
 		
 		# Connect Events
 		self.m_button7.Bind( wx.EVT_BUTTON, self.addBook )
-		self.m_button9.Bind( wx.EVT_BUTTON, self.exitDialog )
 	
 	def __del__( self ):
 		pass
@@ -362,9 +361,6 @@ class AddBookDialog ( wx.Dialog ):
 	
 	# Virtual event handlers, overide them in your derived class
 	def addBook( self, event ):
-		event.Skip()
-	
-	def exitDialog( self, event ):
 		event.Skip()
 	
 
@@ -464,7 +460,7 @@ class AddArticleDialog ( wx.Dialog ):
 		self.m_button7 = wx.Button( self, wx.ID_OK, u"Add article", wx.DefaultPosition, wx.DefaultSize, 0 )
 		bSizer24.Add( self.m_button7, 0, wx.ALL, 5 )
 		
-		self.m_button9 = wx.Button( self, wx.ID_CLOSE, u"Cancel", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_button9 = wx.Button( self, wx.ID_CANCEL, u"Cancel", wx.DefaultPosition, wx.DefaultSize, 0 )
 		bSizer24.Add( self.m_button9, 0, wx.ALL, 5 )
 		
 		
@@ -478,7 +474,7 @@ class AddArticleDialog ( wx.Dialog ):
 		
 		# Connect Events
 		self.m_button7.Bind( wx.EVT_BUTTON, self.addArticle )
-		self.m_button9.Bind( wx.EVT_BUTTON, self.exitDialog )
+		self.m_button9.Bind( wx.EVT_BUTTON, self.on_close )
 	
 	def __del__( self ):
 		pass
@@ -488,7 +484,7 @@ class AddArticleDialog ( wx.Dialog ):
 	def addArticle( self, event ):
 		event.Skip()
 	
-	def exitDialog( self, event ):
+	def on_close( self, event ):
 		event.Skip()
 	
 
@@ -540,14 +536,14 @@ class LogFrame ( wx.Frame ):
 		self.Centre( wx.BOTH )
 		
 		# Connect Events
-		self.m_button10.Bind( wx.EVT_BUTTON, self.onClose )
+		self.m_button10.Bind( wx.EVT_BUTTON, self.on_close )
 	
 	def __del__( self ):
 		pass
 	
 	
 	# Virtual event handlers, overide them in your derived class
-	def onClose( self, event ):
+	def on_close( self, event ):
 		event.Skip()
 	
 
